@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <p id="display"></p>
+
+    <button onclick="getLocation()">Get location</button>
+
+
+    <script>
+
+        const display = document.getElementById('display');
+
+        function getLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }else{
+                display.innerHTML = "Geolocation is not availabel in your browser";
+            }
+        }
+        function showPosition(position){
+            display.innerHTML = "Latitude : " + position.coords.latitude + "<br> Longitude : " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>
